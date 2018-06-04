@@ -31,10 +31,14 @@ function withdraw(account, amount) {
 	account.balance -= amount;
 }
 function transfer(accountSender, accountReceiver, amount) {
-	if( (typeof accountReceiver.balance) !== 'number'
- 			|| accountReceiver.balance)
-	throw new Error('');
-accountSender.balance -= amount;
+	if( isNaN(amount)
+ 			/*|| accountReceiver.balance)*/)
+        throw new Error('')
+    else if (amount > accountSender.balance || amount <= 0)
+        throw new Error('Kalle, you don`t have enough money or you`re trying to steal from someone. We won`t report you this time...')
+    else
+        accountSender.balance -= Number(amount);
+        accountReceiver.balance += Number(amount);
 }
 
 export {state, deposit, withdraw, transfer}
