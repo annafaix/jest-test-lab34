@@ -22,7 +22,7 @@ describe('test deposit', () => {
     test('correct state for deposit on kalle with null', () => {
         expect(() => deposit(state.kalle, null)).toThrow()
     });
-    test('correct state for deposit on kalle with infinity', () => {
+    test('correct state for deposit on kalle with infinity ', () => {
         expect(() => deposit(state.kalle, Infinity)).toThrow()
     });
 });

@@ -21,7 +21,7 @@ var state = {
 }
 
 function deposit(account, amount) {
-    if (isNaN(amount))
+    if (isNaN(amount) || amount === Infinity || amount === null)
         throw new Error('error converting to number');
     account.balance += Number(amount);
 }
