@@ -27,6 +27,50 @@ describe('test deposit', () => {
     });
 });
 
+describe('withdraw function', ()=>{
+
+  test('amount and account are valid values', ()=>{
+    let kalle = { name: 'Kalle', balance: 150 };
+    withdraw(kalle, 100);
+    expect(kalle.balance).toBe(50)
+  })
+  test('amount is negative number', ()=>{
+    let kalle = { name: 'Kalle', balance: 150 };
+    expect(()=> withdraw(kalle, -500)).toThrow();
+  })
+
+  test('amount is string "200"', ()=>{
+    let kalle = { name: 'Kalle', balance: 1500 };
+    withdraw(kalle, "200");
+    expect(kalle.balance).toBe(1300);
+  })
+  test('amount is string "hello"', ()=>{
+    let greta = { name: 'Greta', balance: 1200 };
+    expect(()=> withdraw(greta, "hello")).toThrow();
+  })
+  test('amount is not valid parameter', ()=>{
+    let greta = { name: 'Greta', balance: 1200 };
+    expect(()=> withdraw(greta, null)).toThrow();
+  })
+  test('amount is positive Infinity', ()=>{
+    let kalle = { name: 'Kalle', balance: 1500 };
+    expect(()=> withdraw(kalle, Infinity)).toThrow();
+  })
+  test('account is not valid value - Number', ()=>{
+    let kalle = { name: 'Kalle', balance: 1500 };
+    expect(()=> withdraw(1234, 100)).toThrow();
+  })
+	test('account is not valid value - String', ()=>{
+    let kalle = { name: 'Kalle', balance: 1500 };
+    expect(()=> withdraw('kalle', 100)).toThrow();
+	})
+	test('account is not valid value - Array', ()=>{
+    let kalle = { name: 'Kalle', balance: 1500 };
+    expect(()=> withdraw([], 100)).toThrow();
+	})
+})
+
+
 
 /*
 function transfer(accountSender, accountReceiver, amount) {
@@ -68,4 +112,9 @@ describe('test transfer', () => {
         let currentBalanceReceiver = state.greta.balance;
         expect(() => transfer(state.kalle, state.greta, -100)).toThrow()
     });
+	 	//test for transfer greta->kalle
+		// test('transfer test from greta to kalle', ()=>{
+		// 	transfer(state.greta, state.kalle, 100)
+		// 	expect(state.kalle.balance).toBe(100);
+		// })
 });

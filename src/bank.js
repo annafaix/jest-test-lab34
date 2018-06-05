@@ -26,14 +26,22 @@ function deposit(account, amount) {
     account.balance += Number(amount);
 }
 function withdraw(account, amount) {
-	if( amount <= 0 )
-		throw new Error('Amount must be a positive number!');
-	account.balance -= amount;
+  if(amount <= 0 ){
+    throw new Error('Amount must be a positive number!');
+  }else if(isNaN(amount) || (amount === Infinity) || (amount === null) ){
+    throw new Error ('Not valid amount parmeter');
+  }else if((typeof account !== 'object')|| account.length >= 0){
+    throw new Error ('Not valid account parameter')
+  }
+  else{
+    account.balance -= Number(amount);
+  }
 }
+
 function transfer(accountSender, accountReceiver, amount) {
 	if( isNaN(amount)
  			/*|| accountReceiver.balance)*/)
-        throw new Error('')
+        throw new Error('wrong parameter')
     else if (amount > accountSender.balance || amount <= 0)
         throw new Error('Kalle, you don`t have enough money or you`re trying to steal from someone. We won`t report you this time...')
     else
