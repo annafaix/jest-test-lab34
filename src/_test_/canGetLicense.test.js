@@ -23,8 +23,17 @@ describe('test canGetLicense', () =>{
 
   test('at age 121 I can NOT get license BE', ()=>{
     expect(()=> canGetLicense("BE", 121)).toThrow();
-  })
+  });
+
   test('throw error at age -5', ()=>{
     expect(()=> canGetLicense("A", -5)).toThrow();
-  })
+  });
+  
+  test('string "20" is NOT a valid age parameter', ()=>{
+    expect(()=> canGetLicense("B", "20")).toThrow();
+  });
+
+  test('at age 20.5 I can NOT get license B', ()=>{
+    expect(()=> canGetLicense("B", 20.5)).toThrow();
+  });
 })

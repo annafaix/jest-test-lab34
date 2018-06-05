@@ -7,15 +7,21 @@ function canGetLicense(license, age){
   if((age > 120) || (age < 0)){
     throw new Error('You are probably too old/young');
   }
+  else if((typeof age) !== 'number'){
+    throw new Error('Only numbers')
+  }
+  else if(age % 1 !== 0){
+    throw new Error ('Not valid age-parmeter!')
+  }
   switch(license){
     case "A":
     case "D":
-      return ((Number(age)>=24) ? true : false);
+      return ((age>=24) ? true : false);
     case "B":
     case "BE":
-      return ((Number(age)>=18) ? true : false);
+      return ((age>=18) ? true : false);
     case "C":
-      return ((Number(age)>=21) ? true : false);
+      return ((age>=21) ? true : false);
     default:
       throw new Error('Bad parameter')
   }
