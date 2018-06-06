@@ -97,24 +97,19 @@ describe('test transfer', () => {
         expect(state.kalle.balance).toBe(currentBalanceSender - 100);
         expect(state.greta.balance).toBe(currentBalanceReceiver + 100);
     });
-    test('correct state for transfer from kalle to greta -> 100 with valid number when greta doesn`t have enough money cause she`s poor as fuck', () => {
+    test('correct state for transfer from kalle to greta -> 100 with valid number when greta doesn`t have enough money cause she`s poor', () => {
         let currentBalanceSender = state.kalle.balance;
         let currentBalanceReceiver = state.greta.balance;
         expect(() => transfer(state.kalle, state.greta, 10000)).toThrow()
     });
-    test('correct state for transfer from kalle to greta -> 100 with valid number in string when greta doesn`t have enough money cause she`s poor as fuck', () => {
+    test('correct state for transfer from kalle to greta -> 100 with valid number in string when greta doesn`t have enough money cause she`s poor', () => {
         let currentBalanceSender = state.kalle.balance;
         let currentBalanceReceiver = state.greta.balance;
         expect(() => transfer(state.kalle, state.greta, '10000')).toThrow()
     });
-    test('correct state for transfer from kalle to greta -> -100 kalle is a greedy fucker and wants to steal money from his friend greta, No No No', () => {
+    test('correct state for transfer from kalle to greta -> -100 kalle is a greedy and wants to steal money from his friend greta, No No No', () => {
         let currentBalanceSender = state.kalle.balance;
         let currentBalanceReceiver = state.greta.balance;
         expect(() => transfer(state.kalle, state.greta, -100)).toThrow()
     });
-	 	//test for transfer greta->kalle
-		// test('transfer test from greta to kalle', ()=>{
-		// 	transfer(state.greta, state.kalle, 100)
-		// 	expect(state.kalle.balance).toBe(100);
-		// })
 });
