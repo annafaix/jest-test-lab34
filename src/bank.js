@@ -32,8 +32,9 @@ function withdraw(account, amount) {
     throw new Error ('Not valid amount parmeter');
   }else if((typeof account !== 'object')|| account.length >= 0){
     throw new Error ('Not valid account parameter')
-  }
-  else{
+  }else if(amount > account.balance){
+    throw new Error ('Not enough money for withdraw');
+  }else{
     account.balance -= Number(amount);
   }
 }

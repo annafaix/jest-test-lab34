@@ -38,7 +38,6 @@ describe('withdraw function', ()=>{
     let kalle = { name: 'Kalle', balance: 150 };
     expect(()=> withdraw(kalle, -500)).toThrow();
   })
-
   test('amount is string "200"', ()=>{
     let kalle = { name: 'Kalle', balance: 1500 };
     withdraw(kalle, "200");
@@ -56,6 +55,14 @@ describe('withdraw function', ()=>{
     let kalle = { name: 'Kalle', balance: 1500 };
     expect(()=> withdraw(kalle, Infinity)).toThrow();
   })
+	test('amount is bigger then account.balance', ()=>{
+		let kalle = { name: 'Kalle', balance: 1500 };
+		expect(()=> withdraw(kalle, 2000)).toThrow();
+	})
+	test('amount is 0', () => {
+		let kalle = { name: 'Kalle', balance: 1500 };
+		expect(()=>withdraw(kalle, 0)).toThrow();
+	})
   test('account is not valid value - Number', ()=>{
     let kalle = { name: 'Kalle', balance: 1500 };
     expect(()=> withdraw(1234, 100)).toThrow();
