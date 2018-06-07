@@ -1,0 +1,33 @@
+Rapporten
+
+1.Har ni testat samma saker?
+2.Om ni har missat något testfall som de andra täckte in - varför tänkte ni inte på det? Hur kan man tänka för att inte missa sådana fall i framtiden?
+3.Vilka är de viktigaste testfallen?
+
+toFahrenheit
+1.    I allmänheten så har Sara och oss testat samma saker. Ändå finns en skillnad mellan Saras tester och våra tester.
+Det är att Sara har testat nummret 5500000000000 som högsta giltiga temperatur vilket har vi inte gjort. I stället
+har vi testat funktionen med tal 'Infinity', vilket Sara har också gjort.
+2.   Vi glömmde testa den högsta giltiga temperatur (5500000000000) pga att det inte stod i labbeskrivningen / kravspecs.
+Man behöver tänka på att ibland är inte Infinity det högsta testbart värde.
+3.  Vi anser att de viktigaste testfallen är testfallena med gränsvärden såsom minsta/högsta giltiga värden samt de testfallen som testar de olika typer och att typkonvertering skers på rätt sätt.
+
+canGetLicense
+1.  I flera punkter stämmer våra och Saras tester överrens - både har testat gränsvärden för age-parameter, negativt tal, datatyp sträng. Till skillnad från Sara har vi även test för en ogiltig license-parameter och test för decimal tal.
+2. Vi har inte testat tillåtna och otillåtna gränsvärden för varje licens separat. Även om vi har testat alla möjliga datatyper och tillåtna värden är de viktigt att ändå fokusera på gränsvärdena.
+3. De viktigaste testfallen för age-parameter är de med giltiga/ogiltiga värden samt gränsvärden. Det är också viktigt att inte glömma testa andra parametern (licens).
+
+bank - deposit
+1.  I deposit funktionen har vi testat nästan samma saker. Vi har flera tester för nummer som sträng, datatyper null, Infinity och sträng.
+2.  Vi glömmde testa amount som har minus-värde.
+3.  De viktiga testfallen är de som testar domäner och gränsvärden.
+
+bank - withdraw
+1.  Våra och Saras tester för withdraw funktion är likadana. Vi har testat flera datatyper (både för account och amount).
+2.  Vi har inte räknat med ett fall där account.balance kan ha minus-värde.
+3.  De viktigaste testfallen är de som testar domäner och gränsvärden för alla parametrarna.
+
+bank - transfer
+1. I transfer-funktionen stämmer våra och Saras tester inte så mycket överrens. I framtiden borde vi tänka på skriva flera tester i en komplicerade funktion, framförallt testa alla parametrar.
+2. Vi har missat testa olika datatyper (tillåtna/otillåtna värden) för paramertrar - sender och reciver.
+3.  Som i andra fall är gränsvärden och olika datatyper de viktigaste testfallen.
