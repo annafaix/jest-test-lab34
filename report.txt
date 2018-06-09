@@ -13,7 +13,7 @@ Man behöver tänka på att ibland är inte Infinity det högsta testbart värde
 3.  Vi anser att de viktigaste testfallen är testfallena med gränsvärden såsom minsta/högsta giltiga värden samt de testfallen som testar de olika typer och att typkonvertering skers på rätt sätt.
 
 canGetLicense
-1.  I flera punkter stämmer våra och Saras tester överrens - både har testat gränsvärden för age-parameter, negativt tal, datatyp sträng. Till skillnad från Sara har vi även test för en ogiltig license-parameter och test för decimal tal.
+1.  I flera punkter stämmer våra och Saras tester överens - både har testat gränsvärden för age-parameter, negativt tal, datatyp sträng. Till skillnad från Sara har vi även test för en ogiltig license-parameter och test för decimal tal.
 2. Vi har inte testat tillåtna och otillåtna gränsvärden för varje licens separat. Även om vi har testat alla möjliga datatyper och tillåtna värden är de viktigt att ändå fokusera på gränsvärdena.
 3. De viktigaste testfallen för age-parameter är de med giltiga/ogiltiga värden samt gränsvärden. Det är också viktigt att inte glömma testa andra parametern (licens).
 
